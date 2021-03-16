@@ -1,6 +1,4 @@
 <button (click)="start()" *ngIf="!timer.running">{{(timer.elapsed === 0 ? 'Start' : 'Resume')}}</button>
 <button (click)="pause()" *ngIf="timer.running">Pause</button>
 <button (click)="stop()">Stop</button>
-{{timer.elapsed}}
-{{timer.secondsLeft}}
-{{timer.running}}
+{{timerDisplay(timer.secondsLeft)}}

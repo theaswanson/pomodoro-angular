@@ -22,6 +22,13 @@ export class AppComponent {
     this.timer.stop();
   }
 
+  timerDisplay(totalSeconds: number): string {
+    const elapsed = Math.max(totalSeconds, 0);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+  }
+
   private toSeconds(minutes: number) {
     return minutes * 60;
   }
