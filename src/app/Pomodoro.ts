@@ -50,7 +50,6 @@ export class Pomodoro {
 
   private completeWorkInterval(): void {
     this.workIntervalsCompleted++;
-    console.log(`Completed work interval (now at ${this.workIntervalsCompleted})`);
   }
 
   private setStartTime(): void {

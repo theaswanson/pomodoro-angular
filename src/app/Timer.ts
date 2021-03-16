@@ -57,7 +57,6 @@ export class CountdownTimer {
     if (this.running) {
       this.stop();
     }
-    console.log("Starting timer.")
     this.timer.start();
     if (this.timer.timer) {
       this.timerSubscription = this.timer.timer.subscribe(val => {
@@ -71,19 +70,16 @@ export class CountdownTimer {
   }
 
   pause(): void {
-    console.log("Pausing timer.");
     this.saveElapsed();
     this.stopTimer();
   }
 
   stop(): void {
-    console.log("Stopping timer.");
     this.stopTimer();
     this.resetElapsed();
   }
 
   reset(): void {
-    console.log("Resetting timer.");
     this.resetElapsed();
   }
 
