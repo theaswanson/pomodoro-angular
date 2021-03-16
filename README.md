@@ -1,27 +1,21 @@
-# PomodoroAngular
+# Pomodoro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+Pomodoro is a simple pomodoro timer built with Angular.
 
-## Development server
+![test](pomodoro.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+Install the required dependencies with `npm`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm i
+```
 
-## Build
+Start the dev server with the Angular CLI.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+ng serve
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Refer to the [Angular README](angular.md) for more commands.
