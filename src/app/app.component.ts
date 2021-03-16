@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CountdownTimer } from './Timer';
+import { Pomodoro, Status } from './Pomodoro';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,31 @@ import { CountdownTimer } from './Timer';
 })
 export class AppComponent {
   pomodoroMinutes = 25;
-  timer: CountdownTimer = new CountdownTimer();
+  shortBreakMinutes = 5;
+  longBreakMinutes = 15;
+  workIntervalsCompleted = 0;
+  pomodoro: Pomodoro;
+  statusNames: Map<Status, string>;
+
+  constructor() {
+    this.pomodoro = new Pomodoro(this.pomodoroMinutes, this.shortBreakMinutes, this.longBreakMinutes);
+    this.statusNames = new Map([
+      [Status.Working, "Focus"],
+      [Status.ShortBreak, "Relax"],
+      [Status.LongBreak, "Long Break"]
+    ]);
+  }
 
   start() {
-    this.timer.start(this.toSeconds(this.pomodoroMinutes));
+    this.pomodoro.start();
   }
 
   pause() {
-    this.timer.pause();
+    this.pomodoro.timer.pause();
   }
 
   stop() {
-    this.timer.stop();
+    this.pomodoro.timer.stop();
   }
 
   timerDisplay(totalSeconds: number): string {
@@ -29,7 +42,7 @@ export class AppComponent {
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 
-  private toSeconds(minutes: number) {
-    return minutes * 60;
+  statusName(status: Status): string {
+    return this.statusNames.get(status) ?? "Unknown";
   }
 }

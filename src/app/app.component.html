@@ -1,4 +1,3 @@
-<button (click)="start()" *ngIf="!timer.running">{{(timer.elapsed === 0 ? 'Start' : 'Resume')}}</button>
-<button (click)="pause()" *ngIf="timer.running">Pause</button>
-<button (click)="stop()">Stop</button>
-{{timerDisplay(timer.secondsLeft)}}
+<button (click)="start()" *ngIf="!pomodoro.timer.running">{{(pomodoro.timer.elapsed === 0 ? 'Start' : 'Resume')}}</button>
+<button (click)="pause()" *ngIf="pomodoro.timer.running">Pause</button>
+<p>{{timerDisplay(pomodoro.timer.secondsLeft)}}</p>
