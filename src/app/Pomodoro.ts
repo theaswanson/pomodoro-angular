@@ -40,6 +40,21 @@ export class Pomodoro {
       this.setStartTime();
     });
   }
+
+  setWorkTime(workTime: number) {
+    this.workTime = Math.max(workTime * 60, 0);
+    this.setStartTime();
+  }
+
+  setShortBreakTime(shortBreakTime: number) {
+    this.shortBreakTime = Math.max(shortBreakTime * 60, 0);
+    this.setStartTime();
+  }
+
+  setLongBreakTime(longBreakTime: number) {
+    this.longBreakTime = Math.max(longBreakTime * 60, 0);
+    this.setStartTime();
+  }
   
   private cleanup() {
     if (this.subscription) {

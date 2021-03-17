@@ -1,15 +1,29 @@
 <div class="body">
   <div class="header">
-    <h1>Pomodoro</h1>
+    <h1 class="noselect">Pomodoro</h1>
   </div>
-  <div class="content">
-    <p class="status">{{statusName(pomodoro.status)}}</p>
-    <p class="timer">{{timerDisplay(pomodoro.timer.secondsLeft)}}</p>
+  <div class="content" *ngIf="!optionsShown">
+    <h1 class="status">{{statusName(pomodoro.status)}}</h1>
+    <h1 class="timer">{{timerDisplay(pomodoro.timer.secondsLeft)}}</h1>
     <button class="btn" (click)="start()"
       *ngIf="!pomodoro.timer.running">{{(pomodoro.timer.elapsed === 0 ? 'Start' : 'Resume')}}</button>
     <button class="btn" (click)="pause()" *ngIf="pomodoro.timer.running">Pause</button>
   </div>
-  <div class="footer">
-    <h1>Options</h1>
+  <div class="content" *ngIf="optionsShown">
+    <div class="option">
+      <p>Focus time (minutes)</p>
+      <input type="number" [(ngModel)]="workMinutes" (change)="updateWorkMinutes()" />
+    </div>
+    <div class="option">
+      <p>Relax time (minutes)</p>
+      <input type="number" [(ngModel)]="shortBreakMinutes" (change)="updateShortBreakMinutes()" />
+    </div>
+    <div class="option">
+      <p>Long break time (minutes)</p>
+      <input type="number" [(ngModel)]="longBreakMinutes" (change)="updateLongBreakMinutes()" />
+    </div>
+  </div>
+  <div class="footer" (click)="toggleOptions()">
+    <h1 class="noselect">{{optionsShown ? 'Close' : 'Options'}}</h1>
   </div>
 </div>

@@ -24,12 +24,17 @@
   justify-content: center;
   align-items: center;
   flex: 1 0 auto;
+  padding: 0 3rem;
 
-  p {
+  h1 {
     margin: 0;
     font-size: 6rem;
     font-weight: bold;
     color: #2EBFA5;
+  }
+
+  p {
+    margin: 0;
   }
 
   .status {
@@ -38,6 +43,23 @@
 
   .timer {
     padding: 2rem;
+  }
+
+  .option {
+    color: #2EBFA5;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 100%;
+    padding-bottom: 3rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      padding: 0 1rem;
+      font-size: 2rem;
+      width: 5rem;
+    }
   }
 }
 
@@ -48,6 +70,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  cursor: pointer;
 
   h1 {
     font-size: 3.5rem;

@@ -7,20 +7,22 @@ import { Pomodoro, Status } from './Pomodoro';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  pomodoroMinutes = 25;
+  workMinutes = 25;
   shortBreakMinutes = 5;
   longBreakMinutes = 15;
   workIntervalsCompleted = 0;
   pomodoro: Pomodoro;
   statusNames: Map<Status, string>;
+  optionsShown: boolean;
 
   constructor() {
-    this.pomodoro = new Pomodoro(this.pomodoroMinutes, this.shortBreakMinutes, this.longBreakMinutes);
+    this.pomodoro = new Pomodoro(this.workMinutes, this.shortBreakMinutes, this.longBreakMinutes);
     this.statusNames = new Map([
       [Status.Working, "Focus"],
       [Status.ShortBreak, "Relax"],
       [Status.LongBreak, "Long Break"]
     ]);
+    this.optionsShown = false;
   }
 
   start() {
@@ -44,5 +46,21 @@ export class AppComponent {
 
   statusName(status: Status): string {
     return this.statusNames.get(status) ?? "Unknown";
+  }
+
+  toggleOptions(): void {
+    this.optionsShown = !this.optionsShown;
+  }
+
+  updateWorkMinutes() {
+    this.pomodoro.setWorkTime(this.workMinutes);
+  }
+
+  updateShortBreakMinutes() {
+    this.pomodoro.setShortBreakTime(this.shortBreakMinutes);
+  }
+
+  updateLongBreakMinutes() {
+    this.pomodoro.setLongBreakTime(this.longBreakMinutes);
   }
 }
