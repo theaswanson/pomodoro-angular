@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .body {
   height: 100%;
   display: flex;
@@ -54,6 +56,10 @@
 
     display: flex;
     justify-content: space-between;
+
+    @media screen and (min-width: $desktop) {
+      width: 55rem;
+    }
 
     input {
       padding: 0 1rem;
